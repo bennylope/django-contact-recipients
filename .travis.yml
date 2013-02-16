@@ -9,6 +9,7 @@ env:
 install:
   - pip install -q Django==$DJANGO --use-mirrors
   - pip install -q django-dynamic-fixture==1.6.4
+  - pip install -q django-override-settings==1.2
   - pip install -e .
 script:
   - make test
