@@ -10,4 +10,4 @@ install:
   - pip install -q Django==$DJANGO --use-mirrors
   - pip install -q django-dynamic-fixture==1.6.4
 script:
-  - python manage.py test contact_recipients
+  - make test

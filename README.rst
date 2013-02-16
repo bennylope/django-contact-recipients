@@ -26,4 +26,9 @@ Tests
 
 To run the tests you'll need to install `django-dynamic-fixture`::
 
-    pip install django-dynamic-fixture
+    make test
+
+Or from an active project::
+
+    ./manage.py test contact_recipients
+

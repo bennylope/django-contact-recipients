@@ -1,11 +1,25 @@
-from django.contrib.auth import get_user_model
 from django.test import TestCase
+from django.db.models import get_model
+from django.core.exceptions import ImproperlyConfigured
+from django.conf import settings
 
 from django_dynamic_fixture import G
 from override_settings import override_settings
 
 from .models import Recipient
 from .mixins import RecipientsMixin
+
+
+USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+
+
+def get_user_model():
+    """Fill-in for functionality not available in Django < 1.5"""
+    try:
+        klass = get_model(USER_MODEL.split('.')[0], USER_MODEL.split('.')[1])
+    except:
+        raise ImproperlyConfigured("Your user class, {0}, is improperly defined".format(USER_MODEL))
+    return klass
 
 
 class RecipientMixinTests(TestCase):
