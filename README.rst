@@ -4,6 +4,19 @@ Django Contact Recipients
 A small app for managing the recipients of contact forms via the Django
 admin site.
 
+Installation
+------------
+
+Clone the repository and run::
+
+    python setup.py install
+
+Usage
+-----
+
+This app should be used with a fork of James Bennett's `django-contact-form`
+app.
+
 Tests
 -----
 
